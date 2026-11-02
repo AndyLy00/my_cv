@@ -16,7 +16,15 @@ import type { GuestbookRow, MessageRow, Store } from "./types";
  *
  * Ids are microsecond timestamps, so they sort chronologically and embed their creation time.
  */
-const blobs = () => openBlobStore({ name: "cv", consistency: "strong" });
+const blobs = () => openBlobStore({ name: "cv", consistency: "strong", fetch: uncachedFetch });
+
+/**
+ * Next.js dedupes GET fetches during a render by teeing the response. Cancelling one branch of a
+ * tee only settles once the other is cancelled too, so the Blobs client hangs forever when it
+ * discards a 404 body. A `signal` opts out of deduping, and `no-store` out of the data cache.
+ */
+const uncachedFetch: typeof fetch = (url, init) =>
+  fetch(url, { ...init, cache: "no-store", signal: init?.signal ?? new AbortController().signal });
 
 const newId = () => Date.now() * 1000 + Math.floor(Math.random() * 1000);
 const idTime = (id: number) => id / 1000;
