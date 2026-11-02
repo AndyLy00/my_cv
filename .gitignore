@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/data/*.db*
+/.netlify/
+
+# private originals (photos contain location data) and local tool logs
+/Initial Assets/
+/.claude/state/

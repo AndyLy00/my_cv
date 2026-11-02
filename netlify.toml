@@ -1,0 +1,12 @@
+# Netlify detects Next.js automatically (OpenNext adapter); these settings just pin the basics.
+[build]
+  command = "pnpm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Required environment variables (Site configuration → Environment variables):
+#   ADMIN_PASSWORD        – password for /en/admin
+#   SESSION_SECRET        – long random string that signs the admin cookie
+#   NEXT_PUBLIC_SITE_URL  – e.g. https://your-site.netlify.app (canonical URLs, sitemap)
