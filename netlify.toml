@@ -10,3 +10,7 @@
 #   ADMIN_PASSWORD        – password for /en/admin
 #   SESSION_SECRET        – long random string that signs the admin cookie
 #   NEXT_PUBLIC_SITE_URL  – e.g. https://your-site.netlify.app (canonical URLs, sitemap)
+# Optional email alerts for new messages and notes:
+#   RESEND_API_KEY        – from resend.com; alerts are off without it
+#   ALERT_EMAIL_TO        – defaults to the email in lib/content.ts
+#   ALERT_EMAIL_FROM      – defaults to Resend's onboarding sender

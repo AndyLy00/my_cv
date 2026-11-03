@@ -6,6 +6,7 @@ import { randomUUID } from "node:crypto";
 import { getStore } from "./db";
 import { checkPassword, createSession, destroySession, isAdmin, requesterHash } from "./auth";
 import { projects } from "./content";
+import { alertNewMessage, alertNewNote } from "./email";
 import type { Dictionary } from "./i18n/en";
 
 export type FormState = {
@@ -35,6 +36,7 @@ export async function sendMessage(_prev: FormState, fd: FormData): Promise<FormS
     const store = await getStore();
     if ((await store.countRecent("messages", ipHash, 15)) >= 3) return { ok: false, error: "rateLimit", values };
     await store.insertMessage({ ...values, ipHash });
+    await alertNewMessage(values);
     return { ok: true, stamp: Date.now() };
   } catch (e) {
     console.error("sendMessage failed", e);
@@ -56,6 +58,7 @@ export async function signGuestbook(_prev: FormState, fd: FormData): Promise<For
     const store = await getStore();
     if ((await store.countRecent("guestbook", ipHash, 30)) >= 2) return { ok: false, error: "rateLimit", values };
     await store.insertGuestbook({ name: values.name, role: values.role, message: values.message, emoji, ipHash });
+    await alertNewNote(values);
     return { ok: true, stamp: Date.now() };
   } catch (e) {
     console.error("signGuestbook failed", e);

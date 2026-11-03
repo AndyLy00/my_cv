@@ -12,7 +12,7 @@ A trilingual (EN / RO / RU) portfolio built with **Next.js 16** (App Router, Cac
 - **Projects** – filterable grid; browser mockups auto-scroll full-page screenshots on hover; likes persisted; a case-study page per project with desktop + phone mockups.
 - **Beyond the code** – draggable polaroid wall.
 - **Guestbook** – visitors sign, you approve in the dashboard.
-- **Contact form** – validated server action, honeypot + rate limit, saved to storage, confetti on success.
+- **Contact form** – validated server action, honeypot + rate limit, saved to storage, optional email alert, confetti on success.
 - **⌘K command palette**, light/dark theme with circular reveal, scroll progress, cursor glow, `prefers-reduced-motion` support.
 - **Admin dashboard** at `/en/admin` – messages inbox, guestbook moderation, 14-day views chart, likes per project.
 - SEO: localized metadata, `hreflang`, sitemap, robots, JSON-LD `Person`.
@@ -44,6 +44,7 @@ lib/db/blobs.ts             Netlify Blobs storage; key layout documented at the 
 lib/db/sqlite.ts            local fallback (node:sqlite file in ./data)
 lib/actions.ts              server actions: contact, guestbook, likes, views, admin
 lib/auth.ts                 HMAC-signed admin session cookie
+lib/email.ts                email alerts for new messages and notes (Resend)
 components/                 UI (client components are marked "use client")
 proxy.ts                    locale detection + redirect
 public/me, public/projects  processed photos and project screenshots
@@ -59,6 +60,7 @@ To add a project: add an entry to `projects` in `lib/content.ts`, its copy under
    - `ADMIN_PASSWORD` – password for `/en/admin`
    - `SESSION_SECRET` – a long random string (signs the admin cookie)
    - `NEXT_PUBLIC_SITE_URL` – e.g. `https://your-site.netlify.app`
+   - `RESEND_API_KEY` – optional; emails you when someone sends a message or note ([resend.com](https://resend.com)). `ALERT_EMAIL_TO` and `ALERT_EMAIL_FROM` override the recipient and sender.
 4. Deploy. The contact form, guestbook, likes and view counter now write to Netlify Blobs; read and moderate everything at `/en/admin`.
 
 Locally, `pnpm dev` uses `./data/cv.db` (SQLite). To use a local Blobs sandbox instead, run `npx netlify dev`.
