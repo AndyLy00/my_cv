@@ -4,7 +4,7 @@ A trilingual (EN / RO / RU) portfolio built with **Next.js 16** (App Router, Cac
 
 ## Features
 
-- **Hero** – letter-by-letter name reveal, typing role rotator, 3D-tilt portrait that turns from violet duotone to full colour, magnetic buttons, floating tech badges.
+- **Hero** – letter-by-letter name reveal, typing role rotator, 3D-tilt portrait, magnetic buttons, floating tech badges.
 - **About / stats / languages** – animated counters and progress bars.
 - **What I can do** – service bento grid.
 - **Skills explorer** – filter by area; animated confidence bars.

@@ -220,8 +220,6 @@ export const projects: ProjectMeta[] = [
 ];
 
 export const gallery = [
-  { src: "/me/nature", key: "nature" },
-  { src: "/me/studio", key: "studio" },
-  { src: "/me/evening", key: "evening" },
-  { src: "/me/closeup", key: "closeup" },
+  { src: "/me/graduation", key: "graduation" },
+  { src: "/me/hackathon", key: "hackathon" },
 ] as const;

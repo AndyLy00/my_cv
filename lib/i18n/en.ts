@@ -29,7 +29,6 @@ const en = {
     location: "Chișinău, Moldova",
     relocation: "Open to relocation to Portugal 🇵🇹",
     scroll: "Scroll",
-    hoverHint: "hover me",
   },
   stats: {
     frontend: "years of front end",
@@ -61,7 +60,6 @@ const en = {
       { name: "Russian", level: "C1", value: 88 },
       { name: "English", level: "B2", value: 74 },
     ],
-    photoCaption: "Orheiul Vechi, Moldova",
   },
   services: {
     eyebrow: "What I can do",
@@ -268,10 +266,8 @@ const en = {
     title: "A little more about me",
     hint: "Drag the photos around — hover to bring the colour back.",
     captions: {
-      nature: "Hiking at Orheiul Vechi",
-      studio: "Home office mode",
-      evening: "Nights out with friends",
-      closeup: "Coffee & side projects",
+      graduation: "Graduation day, class of 2025",
+      hackathon: "At a hackathon",
     },
   },
   guestbook: {

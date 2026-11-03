@@ -115,17 +115,14 @@ function About({ dict }: { dict: Dictionary["about"] }) {
       <Reveal className="relative mx-auto w-full max-w-sm lg:sticky lg:top-28">
         <div aria-hidden className="absolute -inset-3 -rotate-3 rounded-[2rem] bg-gradient-to-br from-brand-3/40 via-brand/30 to-brand-2/40 blur-sm" />
         <figure className="group relative overflow-hidden rounded-[2rem] border-4 border-surface shadow-2xl">
-          <Image src="/me/nature-duo.webp" alt="" width={900} height={1125} sizes="(max-width: 1024px) 90vw, 400px" className="h-auto w-full" />
+          <Image src="/me/about-duo.webp" alt="" width={900} height={1125} sizes="(max-width: 1024px) 90vw, 400px" className="h-auto w-full" />
           <Image
-            src="/me/nature.webp"
-            alt="Andreia at Orheiul Vechi"
+            src="/me/about.webp"
+            alt="Andreia Sirețanu"
             fill
             sizes="(max-width: 1024px) 90vw, 400px"
             className="object-cover opacity-0 transition-all duration-1000 group-hover:scale-105 group-hover:opacity-100"
           />
-          <figcaption className="absolute bottom-3 left-3 rounded-full bg-black/45 px-3 py-1 text-xs text-white backdrop-blur">
-            📍 {dict.photoCaption}
-          </figcaption>
         </figure>
       </Reveal>
 

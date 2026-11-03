@@ -31,7 +31,6 @@ const ro: Dictionary = {
     location: "Chișinău, Moldova",
     relocation: "Deschisă relocării în Portugalia 🇵🇹",
     scroll: "Derulează",
-    hoverHint: "treci cu mouse-ul",
   },
   stats: {
     frontend: "ani de front end",
@@ -63,7 +62,6 @@ const ro: Dictionary = {
       { name: "Rusă", level: "C1", value: 88 },
       { name: "Engleză", level: "B2", value: 74 },
     ],
-    photoCaption: "Orheiul Vechi, Moldova",
   },
   services: {
     eyebrow: "Ce pot face",
@@ -270,10 +268,8 @@ const ro: Dictionary = {
     title: "Puțin mai mult despre mine",
     hint: "Trage fotografiile — treci cu mouse-ul ca să revină culoarea.",
     captions: {
-      nature: "Drumeție la Orheiul Vechi",
-      studio: "Modul home office",
-      evening: "Seri cu prietenii",
-      closeup: "Cafea și proiecte personale",
+      graduation: "Ziua absolvirii, promoția 2025",
+      hackathon: "La un hackathon",
     },
   },
   guestbook: {

@@ -64,7 +64,7 @@ export function Magnetic({ children, strength = 0.35 }: { children: ReactNode; s
   );
 }
 
-function Portrait({ hint }: { hint: string }) {
+function Portrait() {
   const reduce = useReducedMotion();
   const mx = useMotionValue(0.5);
   const my = useMotionValue(0.5);
@@ -73,7 +73,6 @@ function Portrait({ hint }: { hint: string }) {
   const glareX = useTransform(mx, [0, 1], ["0%", "100%"]);
   const glareY = useTransform(my, [0, 1], ["0%", "100%"]);
   const glare = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgb(255 255 255 / 0.55), transparent 55%)`;
-  const [hover, setHover] = useState(false);
 
   const chips = [
     { label: "React", cls: "-left-6 top-10", d: 0 },
@@ -92,23 +91,19 @@ function Portrait({ hint }: { hint: string }) {
           mx.set((e.clientX - r.left) / r.width);
           my.set((e.clientY - r.top) / r.height);
         }}
-        onPointerEnter={() => setHover(true)}
         onPointerLeave={() => {
-          setHover(false);
           mx.set(0.5);
           my.set(0.5);
         }}
-        onClick={() => setHover((h) => !h)}
-        className="animate-blob relative aspect-[4/5] cursor-pointer overflow-hidden border-4 border-surface shadow-2xl [animation-duration:22s]"
+        className="animate-blob relative aspect-[4/5] overflow-hidden border-4 border-surface shadow-2xl [animation-duration:22s]"
       >
-        <Image src="/me/portrait-duo.webp" alt="" fill priority sizes="(max-width: 768px) 78vw, 380px" className="object-cover" />
         <Image
           src="/me/portrait.webp"
           alt="Andreia Sirețanu"
           fill
           priority
           sizes="(max-width: 768px) 78vw, 380px"
-          className={`object-cover transition-[opacity,transform] duration-700 ${hover ? "scale-105 opacity-100" : "opacity-0"}`}
+          className="object-cover"
         />
         <motion.div
           aria-hidden
@@ -130,8 +125,6 @@ function Portrait({ hint }: { hint: string }) {
           {c.label}
         </motion.span>
       ))}
-
-      <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 font-mono text-[11px] text-muted">↑ {hint}</span>
     </div>
   );
 }
@@ -250,7 +243,7 @@ export function Hero({ dict }: { dict: Dictionary["hero"] }) {
         </div>
 
         <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2, ease }}>
-          <Portrait hint={dict.hoverHint} />
+          <Portrait />
         </motion.div>
       </div>
 

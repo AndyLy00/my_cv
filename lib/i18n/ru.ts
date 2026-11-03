@@ -31,7 +31,6 @@ const ru: Dictionary = {
     location: "Кишинёв, Молдова",
     relocation: "Открыта к релокации в Португалию 🇵🇹",
     scroll: "Листайте",
-    hoverHint: "наведите",
   },
   stats: {
     frontend: "года во front end",
@@ -63,7 +62,6 @@ const ru: Dictionary = {
       { name: "Русский", level: "C1", value: 88 },
       { name: "Английский", level: "B2", value: 74 },
     ],
-    photoCaption: "Старый Орхей, Молдова",
   },
   services: {
     eyebrow: "Что я умею",
@@ -270,10 +268,8 @@ const ru: Dictionary = {
     title: "Ещё немного обо мне",
     hint: "Перетаскивайте фото — наведите, чтобы вернуть цвет.",
     captions: {
-      nature: "Прогулка в Старом Орхее",
-      studio: "Режим home office",
-      evening: "Вечер с друзьями",
-      closeup: "Кофе и пет-проекты",
+      graduation: "Выпускной, 2025",
+      hackathon: "На хакатоне",
     },
   },
   guestbook: {

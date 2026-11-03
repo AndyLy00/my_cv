@@ -7,10 +7,8 @@ import { gallery } from "@/lib/content";
 import type { Dictionary } from "@/lib/i18n/en";
 
 const layout = [
-  { rotate: -7, x: "2%", y: 30 },
-  { rotate: 5, x: "26%", y: 0 },
-  { rotate: -3, x: "50%", y: 40 },
-  { rotate: 8, x: "74%", y: 10 },
+  { rotate: -5, x: "17%", y: 20 },
+  { rotate: 4, x: "55%", y: 0 },
 ];
 
 /** A wall of polaroids you can drag around; hovering restores the colour. */
@@ -21,7 +19,7 @@ export function Gallery({ dict }: { dict: Dictionary["gallery"] }) {
   return (
     <>
       {/* Desktop: free-form draggable wall */}
-      <div ref={ref} className="relative mt-12 hidden h-[460px] md:block">
+      <div ref={ref} className="relative mt-12 hidden h-[560px] md:block">
         {gallery.map((g, i) => (
           <motion.figure
             key={g.key}
@@ -36,7 +34,7 @@ export function Gallery({ dict }: { dict: Dictionary["gallery"] }) {
             whileHover={{ scale: 1.04, rotate: 0 }}
             whileDrag={{ scale: 1.08, cursor: "grabbing" }}
             style={{ left: layout[i].x, zIndex: top === g.key ? 20 : 10 - i }}
-            className="group absolute w-[23%] cursor-grab touch-none rounded-sm bg-white p-3 pb-12 shadow-[0_20px_50px_-20px_rgb(0_0_0/0.45)]"
+            className="group absolute w-[28%] cursor-grab touch-none rounded-sm bg-white p-3 pb-12 shadow-[0_20px_50px_-20px_rgb(0_0_0/0.45)]"
           >
             <Polaroid g={g} caption={dict.captions[g.key]} />
           </motion.figure>
@@ -65,13 +63,13 @@ function Polaroid({ g, caption }: { g: (typeof gallery)[number]; caption: string
       {/* Explicit sizes instead of `fill`: one of the two layouts is always display:none,
           and `fill` images inside a hidden parent trigger a zero-height warning. */}
       <div className="pointer-events-none relative aspect-[4/5] overflow-hidden bg-neutral-200">
-        <Image src={`${g.src}-duo.webp`} alt="" width={900} height={1125} sizes="(max-width: 768px) 70vw, 260px" className="size-full object-cover" draggable={false} />
+        <Image src={`${g.src}-duo.webp`} alt="" width={900} height={1125} sizes="(max-width: 768px) 70vw, 340px" className="size-full object-cover" draggable={false} />
         <Image
           src={`${g.src}.webp`}
           alt={caption}
           width={900}
           height={1125}
-          sizes="(max-width: 768px) 70vw, 260px"
+          sizes="(max-width: 768px) 70vw, 340px"
           className="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-active:opacity-100"
           draggable={false}
         />
