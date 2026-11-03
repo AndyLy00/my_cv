@@ -8,6 +8,7 @@ import type { Locale } from "@/lib/i18n/config";
 import { experience, marquee, profile, showRelocation, stats } from "@/lib/content";
 import { getStore } from "@/lib/db";
 import { Hero } from "@/components/hero";
+import { ProgressBar } from "@/components/progress-bar";
 import { Reveal, WordsReveal } from "@/components/reveal";
 import { Counter } from "@/components/counter";
 import { SkillsExplorer } from "@/components/skills-explorer";
@@ -160,16 +161,12 @@ function About({ dict }: { dict: Dictionary["about"] }) {
                   <span className="font-medium">{l.name}</span>
                   <span className="font-mono text-brand">{l.level}</span>
                 </div>
-                <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-bg-2">
-                  <Reveal
-                    y={0}
-                    delay={0.2 + i * 0.15}
-                    className="h-full origin-left rounded-full bg-gradient-to-r from-brand to-brand-2"
-                    style={{ width: `${l.value}%` }}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                  />
-                </div>
+                <ProgressBar
+                  value={l.value}
+                  delay={0.2 + i * 0.15}
+                  trackClassName="mt-1.5 h-2 overflow-hidden rounded-full bg-bg-2"
+                  className="rounded-full bg-gradient-to-r from-brand to-brand-2"
+                />
               </li>
             ))}
           </ul>
