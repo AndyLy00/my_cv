@@ -98,7 +98,7 @@ function Portrait() {
         className="animate-blob relative aspect-[4/5] overflow-hidden border-4 border-surface shadow-2xl [animation-duration:22s]"
       >
         <Image
-          src="/me/portrait.webp"
+          src="/me/main-photo.webp"
           alt="Andreia Sirețanu"
           fill
           priority

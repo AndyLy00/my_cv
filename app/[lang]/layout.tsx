@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       title: dict.meta.title,
       description,
       locale: lang,
-      images: ["/me/portrait.webp"],
+      images: ["/me/main-photo.webp"],
     },
     twitter: { card: "summary_large_image", title: dict.meta.title, description },
     authors: [{ name: profile.fullName, url: profile.linkedin }],
